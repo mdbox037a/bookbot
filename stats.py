@@ -14,3 +14,25 @@ def count_characters(text):
             character_dictionary[character] = 1
 
     return character_dictionary
+
+
+def dictionary_sort(character_count_dict):
+    dictionaries_list = []
+
+    for entry in character_count_dict:
+        sub_dictionary = {}
+
+        character_name = entry
+        character_count = character_count_dict[entry]
+        sub_dictionary["char"] = character_name
+        sub_dictionary["num"] = character_count
+
+        dictionaries_list.append(sub_dictionary)
+
+    dictionaries_list.sort(reverse=True, key=sort_on)
+
+    return dictionaries_list
+
+
+def sort_on(items):
+    return items["num"]
